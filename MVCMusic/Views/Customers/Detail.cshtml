@@ -1,0 +1,31 @@
+﻿@model MVCMusic.ViewModels.CustomerViewModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Customer.Name</h2>
+<div class="form-group">
+    <label for="customer-nr">Customer Nr.:</label>
+    <span>@Model.Customer.CustomerId</span>
+</div>
+<div class="form-group">
+    <label for="country">Country:</label>
+    <span>@Model.Customer.Country</span>
+</div>
+
+<h3>Which movies?</h3>
+<ul>
+    @foreach (var movie in Model.Customer.Movies)
+    {
+        <li>
+            @Html.ActionLink(@movie.Name, "Detail", "Movies", new { Id = @movie.Id }, null)
+        </li>
+    }
+</ul>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Customer.ID }, new { @class = "btn btn-warning"})
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+</p>

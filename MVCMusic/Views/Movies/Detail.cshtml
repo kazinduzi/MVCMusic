@@ -1,0 +1,19 @@
+﻿@model MVCMusic.Models.MovieModel
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<div class="">
+    <strong>Genre: </strong><span>@Model.Genre</span><br />
+    <strong>Duration: </strong><span>@Model.Duration</span><br />
+    <strong>Release Date: </strong><span>@Model.ReleasedDate</span><br />
+    <strong>Created: </strong><span>@Model.Created</span><br />
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id } , new {@class = "btn btn-warning"})
+    @Html.ActionLink("Back to List", "Index", "Movies", new { @class = "btn btn-default" })
+</p>

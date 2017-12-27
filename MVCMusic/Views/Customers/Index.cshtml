@@ -1,0 +1,21 @@
+﻿@model MVCMusic.ViewModels.CustMovieViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="customers">
+            @foreach (var Customer in Model.Customers)
+            {
+                <li>
+                    @Html.ActionLink(@Customer.Name, "Detail", new { id = @Customer.ID }, null)
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+@Html.ActionLink("Add new Customer", "New", "Customers", null, new { @class = "btn btn-success", data_rel = "add-new-customer" })
